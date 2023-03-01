@@ -11,7 +11,7 @@ module.exports = {
       },
       data: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         validate:{
           notEmpty: {msg:"Campo de data não pode ser vazio"}
         }
@@ -21,20 +21,20 @@ module.exports = {
         type: Sequelize.INTEGER,
         validate:{
           notEmpty: {msg:"Campo Categoria não pode ser vazio"}
-        }
+        },
+        references:{
+          model: "Categoria",
+          key:"id"
+        },
+        onUpdate: 'cascade',
+        onDelete: 'cascade'
       },
       titulo: {
         allowNull: false,
         type: Sequelize.STRING,
         validate:{
           notEmpty: {msg:"Campo de título não pode ser vazio"}
-        },
-        references:{
-          model: "Categoria",
-          key:"id"
-        },
-        onUpdate:'cascade',
-        onDelete: 'cascade'
+        }      
       },
       valor: {
         allowNull: false,

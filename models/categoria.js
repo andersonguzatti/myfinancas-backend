@@ -4,9 +4,9 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Categoria extends Model {
- 
+
     static associate(models) {
-      this.hasOne(models.Financa, {ForeignKey:"categoria_id"});
+      this.hasOne(models.Financa, { foreignKey: 'categoria_id' });
     }
   }
   Categoria.init({
